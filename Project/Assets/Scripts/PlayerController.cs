@@ -9,20 +9,25 @@ public class PlayerController : MonoBehaviour
 
     public static bool grounded;
     public static bool wasGrounded;
+	public bool soundWasPlayed;
 
     public Transform groundCheck;
     public LayerMask whatIsGround;
     public Text goUpText;
     public Rigidbody2D rb;
 
+	private Animator anim;
+	private AudioSource audio;
+
     private float verticalSpeed;
-    private bool upWasPressed;
-    private Animator anim;
+	private bool upWasPressed;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+		audio = GetComponent<AudioSource> ();
+		soundWasPlayed = false;
     }
 	
     void FixedUpdate ()
@@ -49,9 +54,10 @@ public class PlayerController : MonoBehaviour
             {
                 upWasPressed = true;
                 anim.SetBool("withTheHuman", true);
+
             }
             if (upWasPressed)
-            {
+			{
                 goUpText.enabled = false;
                 if (Input.GetKey("up"))
                 {
@@ -77,6 +83,12 @@ public class PlayerController : MonoBehaviour
             }
             Moving();
         }
+
+		if (upWasPressed && !soundWasPlayed) 
+		{
+			audio.Play ();
+			soundWasPlayed = true;
+		}
 
         if (rb.velocity.x > 0)
             transform.localScale = new Vector3(1f, 1f, 1f);

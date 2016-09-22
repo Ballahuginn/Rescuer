@@ -39,5 +39,6 @@ public class LevelManager : MonoBehaviour {
         player.GetComponent<Renderer>().enabled = true;
         player.GetComponent<BoxCollider2D>().enabled = true;
         player.transform.position = currentCheckpoint.transform.position;
+		player.soundWasPlayed = false;
     }
 }
