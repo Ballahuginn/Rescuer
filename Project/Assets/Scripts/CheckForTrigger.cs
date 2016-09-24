@@ -6,6 +6,7 @@ public class CheckForTrigger : MonoBehaviour {
     public static bool wasTriggered;
 
 	private AudioSource audio;
+
 	private float delay;
 
 	void Start()

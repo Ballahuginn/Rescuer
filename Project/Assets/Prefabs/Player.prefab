@@ -216,6 +216,10 @@ MonoBehaviour:
     m_Bits: 256
   goUpText: {fileID: 0}
   rb: {fileID: 0}
+  knockback: 3
+  knockbakLenght: 0.2
+  knockbackCount: 0
+  knockFromRight: 0
 --- !u!212 &212000012982789132
 SpriteRenderer:
   m_ObjectHideFlags: 1

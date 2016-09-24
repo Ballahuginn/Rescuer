@@ -7,11 +7,15 @@ public class LevelManager : MonoBehaviour {
     public GameObject deathParticle;
     public float respawnDelay;
 
+	public HealthManager healthManager;
+
     private PlayerController player;
 
     void Start ()
     {
         player = FindObjectOfType<PlayerController>();
+
+		healthManager = FindObjectOfType<HealthManager> ();
     }
 	
 	void Update ()
@@ -35,10 +39,13 @@ public class LevelManager : MonoBehaviour {
 
         yield return new WaitForSeconds(respawnDelay);
 
+		player.knockbackCount = 0;
+		player.transform.position = currentCheckpoint.transform.position;
         player.enabled = true;
         player.GetComponent<Renderer>().enabled = true;
         player.GetComponent<BoxCollider2D>().enabled = true;
-        player.transform.position = currentCheckpoint.transform.position;
+		healthManager.FullHealth ();
+		healthManager.isDead = false; 
 		player.soundWasPlayed = false;
     }
 }

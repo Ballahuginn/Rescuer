@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float generalSpeed;
     public float groundCheckRadius;
-
+	  
     public static bool grounded;
     public static bool wasGrounded;
 	public bool soundWasPlayed;
@@ -15,6 +15,11 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
     public Text goUpText;
     public Rigidbody2D rb;
+
+	public float knockback;
+	public float knockbakLenght;
+	public float knockbackCount; 
+	public bool knockFromRight;
 
 	private Animator anim;
 	private AudioSource audio;
@@ -90,10 +95,21 @@ public class PlayerController : MonoBehaviour
 			soundWasPlayed = true;
 		}
 
+		if (knockbackCount <= 0) 
+			Moving ();
+		else
+		{
+			if (knockFromRight)
+				rb.velocity = new Vector2 (-knockback, 0.0f);
+			else
+				rb.velocity = new Vector2 (knockback, 0.0f);
+			knockbackCount -= Time.deltaTime;
+		}
+
         if (rb.velocity.x > 0)
             transform.localScale = new Vector3(1f, 1f, 1f);
         else if (rb.velocity.x < 0)
-            transform.localScale = new Vector3(-1f, 1f, -1f);
+            transform.localScale = new Vector3(-1f, 1f, -1f); 
     }
 
     void Moving ()
