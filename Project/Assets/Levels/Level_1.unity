@@ -1834,7 +1834,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1461393188}
-  m_Layer: 0
+  - 61: {fileID: 1461393190}
+  - 114: {fileID: 1461393189}
+  m_Layer: 10
   m_Name: Walls Layout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1870,6 +1872,32 @@ Transform:
   - {fileID: 1986544103}
   m_Father: {fileID: 1242717108}
   m_RootOrder: 2
+--- !u!114 &1461393189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1461393187}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa41b36272d44168aa4a729833b89a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToGive: 1
+--- !u!61 &1461393190
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1461393187}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -2.5, y: 1}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 8}
 --- !u!1001 &1476611706
 Prefab:
   m_ObjectHideFlags: 0
