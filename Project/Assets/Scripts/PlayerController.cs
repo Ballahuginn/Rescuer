@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
 		audio = GetComponent<AudioSource> ();
 		soundWasPlayed = false;
+		wasGrounded = false;
     }
 	
     void FixedUpdate ()
@@ -41,53 +42,67 @@ public class PlayerController : MonoBehaviour
     }
 
 	void Update ()
+	{
+			Controls ();
+	}
+
+    void Moving ()
     {
-        if (grounded)
-        {
-            wasGrounded = true;
-            anim.SetBool("onTheGround", true);
-        }  
-        else
-        {
-            anim.SetBool("onTheGround", false);
-        }
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = 0.15f * verticalSpeed;
 
-        if (wasGrounded)
-        {
-            goUpText.enabled = true;
-            if (Input.GetKey("up") && CheckForTrigger.wasTriggered)
-            {
-                upWasPressed = true;
-                anim.SetBool("withTheHuman", true);
+        Vector2 movement = new Vector2(moveHorizontal, -moveVertical);
+        rb.velocity = movement * generalSpeed;
+    }
 
-            }
-            if (upWasPressed)
+	void Controls ()
+	{
+		if (grounded)
+		{
+			wasGrounded = true;
+			anim.SetBool("onTheGround", true);
+		}  
+		else
+		{
+			anim.SetBool("onTheGround", false);
+		}
+
+		if (wasGrounded)
+		{
+			goUpText.enabled = true;
+			if (Input.GetKey("up") && CheckForTrigger.wasTriggered)
 			{
-                goUpText.enabled = false;
-                if (Input.GetKey("up"))
-                {
-                    verticalSpeed = -5;
-                }
-                else
-                {
-                    verticalSpeed = -1;
-                }
-                Moving();
-            }
-            
-        }
-        else
-        {
-            if (Input.GetKey("down"))
-            {
-                verticalSpeed = 10;
-            }
-            else
-            {
-                verticalSpeed = 1;
-            }
-            Moving();
-        }
+				upWasPressed = true;
+				anim.SetBool("withTheHuman", true);
+
+			}
+			if (upWasPressed)
+			{
+				goUpText.enabled = false;
+				if (Input.GetKey("up"))
+				{
+					verticalSpeed = -5;
+				}
+				else
+				{
+					verticalSpeed = -1;
+				}
+				Moving();
+			}
+
+		}
+		else
+		{
+			if (Input.GetKey("down"))
+			{
+				verticalSpeed = 10;
+			}
+			else
+			{
+				verticalSpeed = 1;
+			}
+			Moving();
+		}
 
 		if (upWasPressed && !soundWasPlayed) 
 		{
@@ -106,18 +121,9 @@ public class PlayerController : MonoBehaviour
 			knockbackCount -= Time.deltaTime;
 		}
 
-        if (rb.velocity.x > 0)
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        else if (rb.velocity.x < 0)
-            transform.localScale = new Vector3(-1f, 1f, -1f); 
-    }
-
-    void Moving ()
-    {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = 0.15f * verticalSpeed;
-
-        Vector2 movement = new Vector2(moveHorizontal, -moveVertical);
-        rb.velocity = movement * generalSpeed;
-    }
+		if (rb.velocity.x > 0)
+			transform.localScale = new Vector3(1f, 1f, 1f);
+		else if (rb.velocity.x < 0)
+			transform.localScale = new Vector3(-1f, 1f, -1f); 
+	}
 }

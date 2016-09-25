@@ -42,7 +42,7 @@ GameObject:
   - 82: {fileID: 82000012568769432}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
     m_Bits: 256
   goUpText: {fileID: 0}
   rb: {fileID: 0}
-  knockback: 3
+  knockback: 5
   knockbakLenght: 0.2
   knockbackCount: 0
   knockFromRight: 0
