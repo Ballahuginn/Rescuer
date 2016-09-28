@@ -1364,6 +1364,10 @@ Prefab:
       propertyPath: m_Name
       value: Goal
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010638588720, guid: 9b0287eb9bc9b6e48a0598ce076bf5e0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b0287eb9bc9b6e48a0598ce076bf5e0, type: 2}
   m_IsPrefabParent: 0
@@ -1463,6 +1467,21 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010432013070, guid: 4b7088fcd2b22c74b9eef5cbb490f3e4, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5430335037324417643, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 4000012320999472, guid: 4b7088fcd2b22c74b9eef5cbb490f3e4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000012982789132, guid: 4b7088fcd2b22c74b9eef5cbb490f3e4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: e2b9f00474ee17a49bcc91a10d9e201b,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b7088fcd2b22c74b9eef5cbb490f3e4, type: 2}
   m_IsPrefabParent: 0
