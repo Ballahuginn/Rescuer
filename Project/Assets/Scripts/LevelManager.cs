@@ -34,7 +34,8 @@ public class LevelManager : MonoBehaviour {
 
         player.enabled = false;
         player.GetComponent<Renderer>().enabled = false;
-        player.GetComponent<BoxCollider2D>().enabled = false;
+        //player.GetComponent<BoxCollider2D>().enabled = false;
+		//player.GetComponent<PolygonCollider2D>().enabled = false;
         player.rb.velocity = Vector2.zero;
 
         yield return new WaitForSeconds(respawnDelay);
@@ -43,7 +44,7 @@ public class LevelManager : MonoBehaviour {
 		player.transform.position = currentCheckpoint.transform.position;
         player.enabled = true;
         player.GetComponent<Renderer>().enabled = true;
-        player.GetComponent<BoxCollider2D>().enabled = true;
+        //player.GetComponent<BoxCollider2D>().enabled = true;
 		healthManager.FullHealth ();
 		healthManager.isDead = false; 
 		player.soundWasPlayed = false;

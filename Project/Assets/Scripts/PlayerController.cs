@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
 	private Animator anim;
 	private AudioSource audio;
+	private GameObject ropeCollider;
+	private GameObject onGroundCollider;
+	private GameObject withHumanCollider;
 
     private float verticalSpeed;
 	private bool upWasPressed;
@@ -32,8 +35,16 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 		audio = GetComponent<AudioSource> ();
+		ropeCollider = transform.FindChild ("Rope Collider").gameObject;
+		onGroundCollider = transform.FindChild ("OnGround Collider").gameObject;
+		withHumanCollider = transform.FindChild ("WithHuman Collider").gameObject;
 		soundWasPlayed = false;
 		wasGrounded = false;
+		ropeCollider.SetActive (true);
+		onGroundCollider.SetActive (false);
+		withHumanCollider.SetActive (false);
+
+
     }
 	
     void FixedUpdate ()
@@ -43,24 +54,13 @@ public class PlayerController : MonoBehaviour
 
 	void Update ()
 	{
-			Controls ();
-	}
-
-    void Moving ()
-    {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = 0.15f * verticalSpeed;
-
-        Vector2 movement = new Vector2(moveHorizontal, -moveVertical);
-        rb.velocity = movement * generalSpeed;
-    }
-
-	void Controls ()
-	{
 		if (grounded)
 		{
 			wasGrounded = true;
 			anim.SetBool("onTheGround", true);
+			ropeCollider.SetActive (false);
+			onGroundCollider.SetActive (true);
+			withHumanCollider.SetActive (false);
 		}  
 		else
 		{
@@ -74,6 +74,9 @@ public class PlayerController : MonoBehaviour
 			{
 				upWasPressed = true;
 				anim.SetBool("withTheHuman", true);
+				ropeCollider.SetActive (false);
+				onGroundCollider.SetActive (false);
+				withHumanCollider.SetActive (true);
 
 			}
 			if (upWasPressed)
@@ -109,7 +112,7 @@ public class PlayerController : MonoBehaviour
 			audio.Play ();
 			soundWasPlayed = true;
 		}
-
+			
 		if (knockbackCount <= 0) 
 			Moving ();
 		else
@@ -124,6 +127,20 @@ public class PlayerController : MonoBehaviour
 		if (rb.velocity.x > 0)
 			transform.localScale = new Vector3(1f, 1f, 1f);
 		else if (rb.velocity.x < 0)
-			transform.localScale = new Vector3(-1f, 1f, -1f); 
+			transform.localScale = new Vector3(-1f, 1f, -1f);
+	}
+
+	void Moving ()
+	{
+		float moveHorizontal;
+		float moveVertical = 0.15f * verticalSpeed;
+		if (grounded)
+			moveHorizontal = 0.0f;
+		else 
+		{
+			moveHorizontal = Input.GetAxis ("Horizontal");
+		}
+		Vector2 movement = new Vector2 (moveHorizontal, -moveVertical);
+		rb.velocity = movement * generalSpeed;
 	}
 }
