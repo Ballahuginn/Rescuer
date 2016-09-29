@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
 	  
     public static bool grounded;
     public static bool wasGrounded;
-	public bool soundWasPlayed;
 
     public Transform groundCheck;
     public LayerMask whatIsGround;
@@ -20,12 +19,14 @@ public class PlayerController : MonoBehaviour
 	public float knockbakLenght;
 	public float knockbackCount; 
 	public bool knockFromRight;
+	public bool soundWasPlayed;
 
-	private Animator anim;
+	public static Animator playerAnimation;
 	private AudioSource audio;
 	private GameObject ropeCollider;
 	private GameObject onGroundCollider;
 	private GameObject withHumanCollider;
+	private GameObject targetCollider;
 
     private float verticalSpeed;
 	private bool upWasPressed;
@@ -33,17 +34,21 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        playerAnimation = GetComponent<Animator>();
 		audio = GetComponent<AudioSource> ();
 		ropeCollider = transform.FindChild ("Rope Collider").gameObject;
 		onGroundCollider = transform.FindChild ("OnGround Collider").gameObject;
 		withHumanCollider = transform.FindChild ("WithHuman Collider").gameObject;
+		targetCollider = transform.FindChild ("Target Collider").gameObject;
 		soundWasPlayed = false;
 		wasGrounded = false;
 		ropeCollider.SetActive (true);
 		onGroundCollider.SetActive (false);
 		withHumanCollider.SetActive (false);
-
+		targetCollider.SetActive (false);
+		SpriteSet ("withTheHuman", false);
+		SpriteSet ("onTheGround", false);
+		SpriteSet ("targetIsDead", false);
 
     }
 	
@@ -57,14 +62,15 @@ public class PlayerController : MonoBehaviour
 		if (grounded)
 		{
 			wasGrounded = true;
-			anim.SetBool("onTheGround", true);
+			SpriteSet ("onTheGround", true);
 			ropeCollider.SetActive (false);
 			onGroundCollider.SetActive (true);
 			withHumanCollider.SetActive (false);
+			targetCollider.SetActive (false);
 		}  
 		else
 		{
-			anim.SetBool("onTheGround", false);
+			SpriteSet ("onTheGround", false);
 		}
 
 		if (wasGrounded)
@@ -73,10 +79,11 @@ public class PlayerController : MonoBehaviour
 			if (Input.GetKey("up") && CheckForTrigger.wasTriggered)
 			{
 				upWasPressed = true;
-				anim.SetBool("withTheHuman", true);
+				SpriteSet ("withTheHuman", true);
 				ropeCollider.SetActive (false);
 				onGroundCollider.SetActive (false);
 				withHumanCollider.SetActive (true);
+				targetCollider.SetActive (true);
 
 			}
 			if (upWasPressed)
@@ -142,5 +149,10 @@ public class PlayerController : MonoBehaviour
 		}
 		Vector2 movement = new Vector2 (moveHorizontal, -moveVertical);
 		rb.velocity = movement * generalSpeed;
+	}
+
+	public static void SpriteSet (string spriteToSet, bool spriteState)
+	{
+		playerAnimation.SetBool(spriteToSet, spriteState);
 	}
 }

@@ -5,6 +5,8 @@ public class KillPlayer : MonoBehaviour {
 
     public LevelManager levelManager;
 
+	//private PlayerController playerController;
+
 	void Start ()
     {
         levelManager = FindObjectOfType<LevelManager>();
@@ -21,5 +23,9 @@ public class KillPlayer : MonoBehaviour {
         {
             levelManager.RespawnPlayer();
         }
+		if (other.tag == "Target")
+		{
+			PlayerController.SpriteSet("targetIsDead", true);
+		}
     }
 }

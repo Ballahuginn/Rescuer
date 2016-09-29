@@ -1462,26 +1462,6 @@ Prefab:
       propertyPath: goUpText
       value: 
       objectReference: {fileID: 1391447677}
-    - target: {fileID: 82000012568769432, guid: 4b7088fcd2b22c74b9eef5cbb490f3e4,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010432013070, guid: 4b7088fcd2b22c74b9eef5cbb490f3e4, type: 2}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -5430335037324417643, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 4000012320999472, guid: 4b7088fcd2b22c74b9eef5cbb490f3e4, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000012982789132, guid: 4b7088fcd2b22c74b9eef5cbb490f3e4,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300006, guid: e2b9f00474ee17a49bcc91a10d9e201b,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b7088fcd2b22c74b9eef5cbb490f3e4, type: 2}
   m_IsPrefabParent: 0
@@ -1959,7 +1939,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1461393188}
   - 61: {fileID: 1461393190}
-  - 114: {fileID: 1461393189}
   m_Layer: 10
   m_Name: Walls Layout
   m_TagString: Untagged
@@ -1996,18 +1975,6 @@ Transform:
   - {fileID: 1986544103}
   m_Father: {fileID: 1242717108}
   m_RootOrder: 2
---- !u!114 &1461393189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1461393187}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffa41b36272d44168aa4a729833b89a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageToGive: 1
 --- !u!61 &1461393190
 BoxCollider2D:
   m_ObjectHideFlags: 0
