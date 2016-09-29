@@ -49,5 +49,6 @@ public class LevelManager : MonoBehaviour {
 		healthManager.isDead = false; 
 		player.soundWasPlayed = false;
 		PlayerController.SpriteSet ("targetIsDead", false);
+		KillPlayer.deadTarget = false;
 	}
 }

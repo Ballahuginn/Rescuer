@@ -2075,10 +2075,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1000012396607916, guid: 7457743fb3f28c14392a72d0ad326f37, type: 2}
-      propertyPath: m_Name
-      value: Spikes
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7457743fb3f28c14392a72d0ad326f37, type: 2}
   m_IsPrefabParent: 0
@@ -2730,6 +2726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
+  deathParticle: {fileID: 0}
 --- !u!68 &2097575215
 EdgeCollider2D:
   m_ObjectHideFlags: 0

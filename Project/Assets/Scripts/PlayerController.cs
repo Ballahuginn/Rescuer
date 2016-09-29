@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public LayerMask whatIsGround;
     public Text goUpText;
-    public Rigidbody2D rb;
+	public Rigidbody2D rb;
 
 	public float knockback;
 	public float knockbakLenght;
@@ -89,14 +89,12 @@ public class PlayerController : MonoBehaviour
 			if (upWasPressed)
 			{
 				goUpText.enabled = false;
-				if (Input.GetKey("up"))
-				{
+				if (Input.GetKey ("up") && KillPlayer.deadTarget == false)
 					verticalSpeed = -5;
-				}
+				else if (Input.GetKey ("up") && KillPlayer.deadTarget)
+					verticalSpeed = -10;
 				else
-				{
 					verticalSpeed = -1;
-				}
 				Moving();
 			}
 
@@ -104,13 +102,9 @@ public class PlayerController : MonoBehaviour
 		else
 		{
 			if (Input.GetKey("down"))
-			{
 				verticalSpeed = 10;
-			}
 			else
-			{
 				verticalSpeed = 1;
-			}
 			Moving();
 		}
 

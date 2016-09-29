@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e2b9f00474ee17a49bcc91a10d9e201b
-timeCreated: 1474759689
+timeCreated: 1475189280
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,10 @@ TextureImporter:
     21300006: Player_On_The_Rope
     21300008: Target
     21300010: Both humans
+    21300012: Bat_1
+    21300014: Bat_2
+    21300016: Bat_3
+    21300018: With Blood
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -131,6 +135,58 @@ TextureImporter:
         y: 193
         width: 29
         height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bat_1
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 233
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bat_2
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 233
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bat_3
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 233
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: With Blood
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 227
+        width: 13
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

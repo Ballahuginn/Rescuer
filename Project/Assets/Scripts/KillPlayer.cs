@@ -5,11 +5,17 @@ public class KillPlayer : MonoBehaviour {
 
     public LevelManager levelManager;
 
-	//private PlayerController playerController;
+	public static bool deadTarget;
+
+	public GameObject deathParticle;
+
+	private PlayerController player;
 
 	void Start ()
-    {
+	{
+		player = FindObjectOfType<PlayerController>();
         levelManager = FindObjectOfType<LevelManager>();
+		deadTarget = false;
 	}
 	
 	void Update ()
@@ -25,7 +31,9 @@ public class KillPlayer : MonoBehaviour {
         }
 		if (other.tag == "Target")
 		{
+			Instantiate (deathParticle, player.transform.position, player.transform.rotation);
 			PlayerController.SpriteSet("targetIsDead", true);
+			deadTarget = true;
 		}
     }
 }
