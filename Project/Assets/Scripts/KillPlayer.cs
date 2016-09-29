@@ -5,6 +5,8 @@ public class KillPlayer : MonoBehaviour {
 
     public LevelManager levelManager;
 
+	//private PlayerController playerController;
+
 	void Start ()
     {
         levelManager = FindObjectOfType<LevelManager>();
@@ -17,9 +19,13 @@ public class KillPlayer : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "Player")
+		if (other.tag == "Player")
         {
             levelManager.RespawnPlayer();
         }
+		if (other.tag == "Target")
+		{
+			PlayerController.SpriteSet("targetIsDead", true);
+		}
     }
 }
