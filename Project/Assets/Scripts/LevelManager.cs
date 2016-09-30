@@ -10,12 +10,13 @@ public class LevelManager : MonoBehaviour {
 	public HealthManager healthManager;
 
     private PlayerController player;
+	private GameObject targetCollider;
 
     void Start ()
     {
         player = FindObjectOfType<PlayerController>();
-
 		healthManager = FindObjectOfType<HealthManager> ();
+		targetCollider = player.transform.FindChild ("Target Collider").gameObject;
     }
 	
 	void Update ()
@@ -34,8 +35,6 @@ public class LevelManager : MonoBehaviour {
 
         player.enabled = false;
         player.GetComponent<Renderer>().enabled = false;
-        //player.GetComponent<BoxCollider2D>().enabled = false;
-		//player.GetComponent<PolygonCollider2D>().enabled = false;
         player.rb.velocity = Vector2.zero;
 
         yield return new WaitForSeconds(respawnDelay);
@@ -44,11 +43,11 @@ public class LevelManager : MonoBehaviour {
 		player.transform.position = currentCheckpoint.transform.position;
         player.enabled = true;
         player.GetComponent<Renderer>().enabled = true;
-        //player.GetComponent<BoxCollider2D>().enabled = true;
 		healthManager.FullHealth ();
 		healthManager.isDead = false; 
 		player.soundWasPlayed = false;
 		PlayerController.SpriteSet ("targetIsDead", false);
 		KillPlayer.deadTarget = false;
+		//targetCollider.SetActive (true);
 	}
 }

@@ -68,17 +68,10 @@ public class PlayerController : MonoBehaviour
 			onGroundCollider.SetActive (true);
 			withHumanCollider.SetActive (false);
 			targetCollider.SetActive (false);
-		}  
-		else
-		{
-			SpriteSet ("onTheGround", false);
-		}
 
-		if (wasGrounded)
-		{
-			goUpText.enabled = true;
 			if (Input.GetKey("up") && CheckForTrigger.wasTriggered)
 			{
+				goUpText.enabled = true;
 				upWasPressed = true;
 				SpriteSet ("withTheHuman", true);
 				ropeCollider.SetActive (false);
@@ -87,6 +80,21 @@ public class PlayerController : MonoBehaviour
 				targetCollider.SetActive (true);
 
 			}
+		}  
+		else
+		{
+			SpriteSet ("onTheGround", false);
+			if (KillPlayer.deadTarget == false && wasGrounded == false)
+				targetCollider.SetActive (false);
+			else if (KillPlayer.deadTarget == true && wasGrounded == true)
+				targetCollider.SetActive (false);
+			else
+				targetCollider.SetActive (true);
+		}
+
+		if (wasGrounded)
+		{
+			
 			if (upWasPressed)
 			{
 				goUpText.enabled = false;

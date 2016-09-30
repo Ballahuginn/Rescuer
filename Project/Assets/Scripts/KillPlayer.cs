@@ -10,12 +10,14 @@ public class KillPlayer : MonoBehaviour {
 	public GameObject deathParticle;
 
 	private PlayerController player;
+	private GameObject targetCollider;
 
 	void Start ()
 	{
 		player = FindObjectOfType<PlayerController>();
         levelManager = FindObjectOfType<LevelManager>();
 		deadTarget = false;
+		targetCollider = player.transform.FindChild ("Target Collider").gameObject;
 	}
 	
 	void Update ()
@@ -34,6 +36,7 @@ public class KillPlayer : MonoBehaviour {
 			Instantiate (deathParticle, player.transform.position, player.transform.rotation);
 			PlayerController.SpriteSet("targetIsDead", true);
 			deadTarget = true;
+			targetCollider.SetActive (false);
 		}
     }
 }
