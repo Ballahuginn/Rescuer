@@ -5,13 +5,14 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public float generalSpeed;
-    public float groundCheckRadius;
-	  
+   
+	public float groundCheckRadius;  
     public static bool grounded;
-    public static bool wasGrounded;
-
     public Transform groundCheck;
     public LayerMask whatIsGround;
+
+	public static bool wasGrounded;
+
     public Text goUpText;
 	public Rigidbody2D rb;
 

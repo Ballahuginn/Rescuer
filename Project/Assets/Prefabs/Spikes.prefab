@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000013462488400}
   - 114: {fileID: 114000010383956946}
   - 68: {fileID: 68000010050832600}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}

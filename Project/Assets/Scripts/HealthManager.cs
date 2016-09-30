@@ -40,6 +40,11 @@ public class HealthManager : MonoBehaviour {
 		playerHealth -= damageToGive;	
 	}
 
+	public static void HurtPlayerWithEnemy(int enemyDamageToGive)
+	{
+		playerHealth -= enemyDamageToGive;
+	}
+
 	public void FullHealth()
 	{
 		playerHealth = maxPlayerHealth; 
