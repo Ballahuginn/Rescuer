@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
 			if (Input.GetKey("up") && CheckForTrigger.wasTriggered)
 			{
-				goUpText.enabled = true;
+				
 				upWasPressed = true;
 				SpriteSet ("withTheHuman", true);
 				ropeCollider.SetActive (false);
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
 		if (wasGrounded)
 		{
-			
+			goUpText.enabled = true;
 			if (upWasPressed)
 			{
 				goUpText.enabled = false;

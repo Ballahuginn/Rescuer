@@ -5,9 +5,13 @@ public class HurtPlayerWithEnemy : MonoBehaviour {
 
 	public int enemyDamageToGive;
 
+	public GameObject hurtParticle;
+
+	private PlayerController player;
+
 	void Start () 
 	{
-
+		player = FindObjectOfType<PlayerController>();
 	}
 
 	void Update () 
@@ -20,6 +24,7 @@ public class HurtPlayerWithEnemy : MonoBehaviour {
 		if (other.tag == "Player")
 		{
 			HealthManager.HurtPlayerWithEnemy (enemyDamageToGive);
+			Instantiate (hurtParticle, player.transform.position, player.transform.rotation);
 		}
 	}
 }

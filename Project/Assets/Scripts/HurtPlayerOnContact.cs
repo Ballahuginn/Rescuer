@@ -5,9 +5,13 @@ public class HurtPlayerOnContact : MonoBehaviour {
 
 	public int damageToGive;
 
+	public GameObject hurtParticle;
+
+	private PlayerController player;
+
 	void Start () 
 	{
-	
+		player = FindObjectOfType<PlayerController>();
 	}
 
 	void Update () 
@@ -28,6 +32,8 @@ public class HurtPlayerOnContact : MonoBehaviour {
 				player.knockFromRight = true;
 			else
 				player.knockFromRight = false;
+
+			Instantiate (hurtParticle, player.transform.position, player.transform.rotation);
 		}
 	}
 }

@@ -743,7 +743,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1001 &499545237
 Prefab:
   m_ObjectHideFlags: 0
@@ -1363,7 +1363,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013795860218, guid: 9b0287eb9bc9b6e48a0598ce076bf5e0, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1000010638588720, guid: 9b0287eb9bc9b6e48a0598ce076bf5e0, type: 2}
       propertyPath: m_Name
@@ -1945,7 +1945,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1461393188}
   - 61: {fileID: 1461393190}
-  - 114: {fileID: 1461393189}
   m_Layer: 10
   m_Name: Walls Layout
   m_TagString: Untagged
@@ -1982,18 +1981,6 @@ Transform:
   - {fileID: 1986544103}
   m_Father: {fileID: 1242717108}
   m_RootOrder: 2
---- !u!114 &1461393189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1461393187}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffa41b36272d44168aa4a729833b89a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageToGive: 1
 --- !u!61 &1461393190
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2369,7 +2356,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!114 &1596892269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2536,7 +2523,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013795860218, guid: 9b0287eb9bc9b6e48a0598ce076bf5e0, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1000010638588720, guid: 9b0287eb9bc9b6e48a0598ce076bf5e0, type: 2}
       propertyPath: m_IsActive

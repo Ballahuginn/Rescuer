@@ -16,7 +16,7 @@ public class LevelLoader : MonoBehaviour {
 	{
 		if (playerInZone)
 		{
-			Application.LoadLevel (levelToLoad);
+			 Application.LoadLevel (levelToLoad);
 		}
 	}
 
