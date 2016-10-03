@@ -52,7 +52,7 @@ public class LevelSelectManager : MonoBehaviour {
 				isPressed = true;
 			}
 
-			if (Input.GetAxis ("Horizontal") < -0.25f) 
+			if (Input.GetAxis ("Horizontal") < -0.25f)
 			{
 				positionSelector -= 1;
 				isPressed = true;
@@ -77,7 +77,7 @@ public class LevelSelectManager : MonoBehaviour {
 
 		transform.position = Vector3.MoveTowards (transform.position, locks [positionSelector].transform.position + new Vector3 (0, -distanceBelowLock, 0), moveSpeed * Time.deltaTime);
 
-		if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
+		if (Input.GetButtonDown("Jump"))
 		{
 			if (levelUnlocked[positionSelector])
 			{
