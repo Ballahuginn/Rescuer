@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLevel: Level 0
   levelSelect: Level_Select
-  level0Tag: level0lock
+  level0Tag: level0tag
 --- !u!1 &228913190
 GameObject:
   m_ObjectHideFlags: 0
