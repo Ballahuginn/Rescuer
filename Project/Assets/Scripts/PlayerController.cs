@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
 			withHumanCollider.SetActive (false);
 			targetCollider.SetActive (false);
 
-			if (Input.GetButtonDown("Jump") && CheckForTrigger.wasTriggered)
+			if (Input.GetKey ("up") && CheckForTrigger.wasTriggered)
 			{
 				
 				spaceWasPressed = true;

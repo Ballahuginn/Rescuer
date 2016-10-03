@@ -1895,7 +1895,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press SPACE to go up
+  m_Text: Press UP ARROW to go up
 --- !u!222 &1391447678
 CanvasRenderer:
   m_ObjectHideFlags: 0

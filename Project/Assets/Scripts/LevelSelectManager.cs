@@ -77,8 +77,10 @@ public class LevelSelectManager : MonoBehaviour {
 
 		transform.position = Vector3.MoveTowards (transform.position, locks [positionSelector].transform.position + new Vector3 (0, -distanceBelowLock, 0), moveSpeed * Time.deltaTime);
 
-		if (Input.GetButtonDown("Jump"))
+		if (Input.GetKey ("up"))
 		{
+			//transform.position = Vector2.MoveTowards(transform.position, locks [positionSelector].transform.position + new Vector3 (0, 10f, 0), moveSpeed * Time.deltaTime);
+			transform.position = new Vector2 (locks[positionSelector].transform.position.x, 3.5f);
 			if (levelUnlocked[positionSelector])
 			{
 				PlayerPrefs.SetInt ("PlayerLevelSelectPosition", positionSelector);
