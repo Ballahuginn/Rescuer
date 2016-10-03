@@ -6,6 +6,7 @@ public class LevelLoader : MonoBehaviour {
 	private bool playerInZone;
 
 	public string levelToLoad;
+	public string levelTag;
 
 	void Start () 
 	{
@@ -16,8 +17,14 @@ public class LevelLoader : MonoBehaviour {
 	{
 		if (playerInZone)
 		{
-			 Application.LoadLevel (levelToLoad);
+			LoadLevel ();
 		}
+	}
+
+	public void LoadLevel()
+	{
+		PlayerPrefs.SetInt (levelTag, 1);
+		Application.LoadLevel (levelToLoad);
 	}
 
 	void OnTriggerEnter2D(Collider2D other)

@@ -10,13 +10,13 @@ public class LevelManager : MonoBehaviour {
 	public HealthManager healthManager;
 
     private PlayerController player;
-	private GameObject targetCollider;
+	//private GameObject targetCollider;
 
     void Start ()
     {
         player = FindObjectOfType<PlayerController>();
 		healthManager = FindObjectOfType<HealthManager> ();
-		targetCollider = player.transform.FindChild ("Target Collider").gameObject;
+		//targetCollider = player.transform.FindChild ("Target Collider").gameObject;
     }
 	
 	void Update ()

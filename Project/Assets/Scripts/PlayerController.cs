@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 	private GameObject targetCollider;
 
     private float verticalSpeed;
-	private bool upWasPressed;
+	private bool spaceWasPressed;
 
     void Start()
     {
@@ -69,10 +69,10 @@ public class PlayerController : MonoBehaviour
 			withHumanCollider.SetActive (false);
 			targetCollider.SetActive (false);
 
-			if (Input.GetKey("up") && CheckForTrigger.wasTriggered)
+			if (Input.GetButtonDown("Jump") && CheckForTrigger.wasTriggered)
 			{
 				
-				upWasPressed = true;
+				spaceWasPressed = true;
 				SpriteSet ("withTheHuman", true);
 				ropeCollider.SetActive (false);
 				onGroundCollider.SetActive (false);
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
 		if (wasGrounded)
 		{
 			goUpText.enabled = true;
-			if (upWasPressed)
+			if (spaceWasPressed)
 			{
 				goUpText.enabled = false;
 				if (Input.GetKey ("up") && KillPlayer.deadTarget == false)
@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
 			Moving();
 		}
 
-		if (upWasPressed && !soundWasPlayed) 
+		if (spaceWasPressed && !soundWasPlayed) 
 		{
 			audio.Play ();
 			soundWasPlayed = true;

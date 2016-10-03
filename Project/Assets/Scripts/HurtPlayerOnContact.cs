@@ -28,9 +28,10 @@ public class HurtPlayerOnContact : MonoBehaviour {
 			var player = other.GetComponent<PlayerController> (); 
 			player.knockbackCount = player.knockbakLenght; 
 
-			if (other.transform.position.x < transform.position.x)
+			//if (other.transform.position.x < transform.position.x)
+			if (Input.GetKey("right"))
 				player.knockFromRight = true;
-			else
+			else if (Input.GetKey("left"))
 				player.knockFromRight = false;
 
 			Instantiate (hurtParticle, player.transform.position, player.transform.rotation);

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Tiled2Unity generated xml data-->
+<!--Do not modify by hand-->
+<!--Last exported: 10/3/2016 1:29:54 AM-->
+<Tiled2Unity version="1.0.7.8">
+  <AssignMaterial mesh="mesh_0001" material="Rescuer" />
+  <AssignMaterial mesh="mesh_0002" material="Rescuer" />
+  <AssignMaterial mesh="mesh_0003" material="Rescuer" />
+  <Prefab name="Level 0" orientation="Orthogonal" staggerAxis="Y" staggerIndex="Odd" hexSideLength="0" numLayers="3" numTilesWide="11" numTilesHigh="50" tileWidth="32" tileHeight="32" exportScale="1" mapWidthInPixels="352" mapHeightInPixels="1600" scale=".03125">
+    <GameObject name="Ground" x="0" y="0" z="0">
+      <GameObject name="Rescuer" copy="mesh_0001" sortingLayerName="" sortingOrder="0" opacity="1" />
+      <GameObject name="Collision">
+        <PolygonCollider2D>
+          <Path>288,-416 256,-416 256,-448 96,-448 96,-416 64,-416 64,-480 288,-480</Path>
+        </PolygonCollider2D>
+      </GameObject>
+    </GameObject>
+    <GameObject name="Walls" x="0" y="0" z="0" isTrigger="true" layer="Walls" tag="Wall">
+      <GameObject name="Rescuer" copy="mesh_0002" sortingLayerName="" sortingOrder="1" opacity="1" />
+      <GameObject name="Collision">
+        <PolygonCollider2D>
+          <Path>96,-416 96,-160 64,-160 64,-416</Path>
+          <Path>288,-416 288,-160 256,-160 256,-416</Path>
+        </PolygonCollider2D>
+      </GameObject>
+    </GameObject>
+    <GameObject name="Spikes" x="0" y="0" z="0" isTrigger="true" layer="Spikes" tag="Spike">
+      <GameObject name="Rescuer" copy="mesh_0003" sortingLayerName="" sortingOrder="2" opacity="1" />
+      <GameObject name="Collision">
+        <EdgeCollider2D>
+          <Points>95,-448 95,-443 95,-448 128,-448 127,-443 121,-416 118,-416 113,-442 110,-442 105,-415 102,-416 96,-443</Points>
+        </EdgeCollider2D>
+        <EdgeCollider2D>
+          <Points>127,-448 127,-443 127,-448 160,-448 159,-443 153,-416 150,-416 145,-442 142,-442 137,-415 134,-416 128,-443</Points>
+        </EdgeCollider2D>
+        <EdgeCollider2D>
+          <Points>191,-448 191,-443 191,-448 224,-448 223,-443 217,-416 214,-416 209,-442 206,-442 201,-415 198,-416 192,-443</Points>
+        </EdgeCollider2D>
+        <EdgeCollider2D>
+          <Points>223,-448 223,-443 223,-448 256,-448 255,-443 249,-416 246,-416 241,-442 238,-442 233,-415 230,-416 224,-443</Points>
+        </EdgeCollider2D>
+      </GameObject>
+    </GameObject>
+  </Prefab>
+  <ImportMesh filename="Level 0.obj">IyBXYXZlZnJvbnQgT0JKIGZpbGUgYXV0b21hdGljYWxseSBnZW5lcmF0ZWQgYnkgVGlsZWQyVW5pdHkKCiMgVmVydGljZXMgKENvdW50ID0gNTYpCnYgLTI1NiAtNDgwIDAKdiAtMjg4IC00ODAgMAp2IC0yODggLTQ0OCAwCnYgLTI1NiAtNDQ4IDAKdiAtMjI0IC00ODAgMAp2IC0yMjQgLTQ0OCAwCnYgLTE5MiAtNDgwIDAKdiAtMTkyIC00NDggMAp2IC0xNjAgLTQ4MCAwCnYgLTE2MCAtNDQ4IDAKdiAtMTI4IC00ODAgMAp2IC0xMjggLTQ0OCAwCnYgLTk2IC00ODAgMAp2IC05NiAtNDQ4IDAKdiAtNjQgLTQ4MCAwCnYgLTY0IC00NDggMAp2IC0yODggLTQxNiAwCnYgLTI1NiAtNDE2IDAKdiAtOTYgLTQxNiAwCnYgLTY0IC00MTYgMAp2IC0yODggLTM4NCAwCnYgLTI1NiAtMzg0IDAKdiAtOTYgLTM4NCAwCnYgLTY0IC0zODQgMAp2IC0yODggLTM1MiAwCnYgLTI1NiAtMzUyIDAKdiAtOTYgLTM1MiAwCnYgLTY0IC0zNTIgMAp2IC0yODggLTMyMCAwCnYgLTI1NiAtMzIwIDAKdiAtOTYgLTMyMCAwCnYgLTY0IC0zMjAgMAp2IC0yODggLTI4OCAwCnYgLTI1NiAtMjg4IDAKdiAtOTYgLTI4OCAwCnYgLTY0IC0yODggMAp2IC0yODggLTI1NiAwCnYgLTI1NiAtMjU2IDAKdiAtOTYgLTI1NiAwCnYgLTY0IC0yNTYgMAp2IC0yODggLTIyNCAwCnYgLTI1NiAtMjI0IDAKdiAtOTYgLTIyNCAwCnYgLTY0IC0yMjQgMAp2IC0yODggLTE5MiAwCnYgLTI1NiAtMTkyIDAKdiAtOTYgLTE5MiAwCnYgLTY0IC0xOTIgMAp2IC0yODggLTE2MCAwCnYgLTI1NiAtMTYwIDAKdiAtOTYgLTE2MCAwCnYgLTY0IC0xNjAgMAp2IC0yMjQgLTQxNiAwCnYgLTE5MiAtNDE2IDAKdiAtMTYwIC00MTYgMAp2IC0xMjggLTQxNiAwCgojIFRleHR1cmUgY29vcmlkaW5hdGVzIChDb3VudCA9IDgpCnZ0IDEuNTI1ODc5RS0wNSAwLjYyNTAxNTMKdnQgMC4xMjQ5ODQ3IDAuNjI1MDE1Mwp2dCAwLjEyNDk4NDcgMC43NDk5ODQ3CnZ0IDEuNTI1ODc5RS0wNSAwLjc0OTk4NDcKdnQgMC4xMjUwMTUzIDAuNjI1MDE1Mwp2dCAwLjI0OTk4NDcgMC42MjUwMTUzCnZ0IDAuMjQ5OTg0NyAwLjc0OTk4NDcKdnQgMC4xMjUwMTUzIDAuNzQ5OTg0NwoKIyBOb3JtYWwKdm4gMCAwIC0xCgojIEdyb3VwcyAoQ291bnQgPSAzKQoKZyBtZXNoXzAwMDEKZiAxLzEvMSAyLzIvMSAzLzMvMSA0LzQvMQpmIDUvMS8xIDEvMi8xIDQvMy8xIDYvNC8xCmYgNy8xLzEgNS8yLzEgNi8zLzEgOC80LzEKZiA5LzEvMSA3LzIvMSA4LzMvMSAxMC80LzEKZiAxMS8xLzEgOS8yLzEgMTAvMy8xIDEyLzQvMQpmIDEzLzEvMSAxMS8yLzEgMTIvMy8xIDE0LzQvMQpmIDE1LzEvMSAxMy8yLzEgMTQvMy8xIDE2LzQvMQpmIDQvMS8xIDMvMi8xIDE3LzMvMSAxOC80LzEKZiAxNi8xLzEgMTQvMi8xIDE5LzMvMSAyMC80LzEKCmcgbWVzaF8wMDAyCmYgMTgvMS8xIDE3LzIvMSAyMS8zLzEgMjIvNC8xCmYgMjAvMS8xIDE5LzIvMSAyMy8zLzEgMjQvNC8xCmYgMjIvMS8xIDIxLzIvMSAyNS8zLzEgMjYvNC8xCmYgMjQvMS8xIDIzLzIvMSAyNy8zLzEgMjgvNC8xCmYgMjYvMS8xIDI1LzIvMSAyOS8zLzEgMzAvNC8xCmYgMjgvMS8xIDI3LzIvMSAzMS8zLzEgMzIvNC8xCmYgMzAvMS8xIDI5LzIvMSAzMy8zLzEgMzQvNC8xCmYgMzIvMS8xIDMxLzIvMSAzNS8zLzEgMzYvNC8xCmYgMzQvMS8xIDMzLzIvMSAzNy8zLzEgMzgvNC8xCmYgMzYvMS8xIDM1LzIvMSAzOS8zLzEgNDAvNC8xCmYgMzgvMS8xIDM3LzIvMSA0MS8zLzEgNDIvNC8xCmYgNDAvMS8xIDM5LzIvMSA0My8zLzEgNDQvNC8xCmYgNDIvMS8xIDQxLzIvMSA0NS8zLzEgNDYvNC8xCmYgNDQvMS8xIDQzLzIvMSA0Ny8zLzEgNDgvNC8xCmYgNDYvMS8xIDQ1LzIvMSA0OS8zLzEgNTAvNC8xCmYgNDgvMS8xIDQ3LzIvMSA1MS8zLzEgNTIvNC8xCgpnIG1lc2hfMDAwMwpmIDYvNS8xIDQvNi8xIDE4LzcvMSA1My84LzEKZiA4LzUvMSA2LzYvMSA1My83LzEgNTQvOC8xCmYgMTIvNS8xIDEwLzYvMSA1NS83LzEgNTYvOC8xCmYgMTQvNS8xIDEyLzYvMSA1Ni83LzEgMTkvOC8xCgo=</ImportMesh>
+  <InternalTexture assetPath="Assets/Art/Rescuer.png" />
+</Tiled2Unity>

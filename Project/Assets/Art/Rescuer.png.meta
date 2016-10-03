@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e2b9f00474ee17a49bcc91a10d9e201b
-timeCreated: 1475434515
+timeCreated: 1475442589
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,10 @@ TextureImporter:
     21300014: Bat_2
     21300016: Bat_3
     21300018: With Blood
+    21300020: Level_Select_0
+    21300022: Level_Select_1
+    21300024: Level_Select_2
+    21300026: LeveL_Select_Lock
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -80,9 +84,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 160
-        width: 32
-        height: 32
+        y: 161
+        width: 31
+        height: 31
       alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -92,10 +96,10 @@ TextureImporter:
       name: Spikes
       rect:
         serializedVersion: 2
-        x: 32
-        y: 160
-        width: 32
-        height: 32
+        x: 33
+        y: 161
+        width: 31
+        height: 31
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,6 +191,58 @@ TextureImporter:
         y: 227
         width: 13
         height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Level_Select_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Level_Select_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Level_Select_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LeveL_Select_Lock
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 98
+        width: 28
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
