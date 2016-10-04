@@ -35,7 +35,7 @@ public class NewLevelSelectManager : MonoBehaviour {
 
 			button.levelText.text = level.levelText;
 
-			if (PlayerPrefs.GetInt("Level" + button.levelText.text) == 1)
+			if (PlayerPrefs.GetInt("Level_" + button.levelText.text) == 1)
 			{
 				level.unLocked = 1;
 				level.isInteractable = true;
@@ -44,6 +44,11 @@ public class NewLevelSelectManager : MonoBehaviour {
 			button.unlocked = level.unLocked;
 			button.GetComponent<Button> ().interactable = level.isInteractable;
 			button.GetComponent<Button> ().onClick.AddListener (() => LoadLevels ("Level_" + button.levelText.text));
+
+			if (PlayerPrefs.GetInt("Level_" + button.levelText.text + "_done") == 1)
+			{
+				button.Star1.SetActive (true);
+			}
 
 			newButton.transform.SetParent (spacer);
 		}
@@ -61,7 +66,7 @@ public class NewLevelSelectManager : MonoBehaviour {
 			foreach (GameObject buttons in allButtons) 
 			{
 				LevelSelectButton button = buttons.GetComponent<LevelSelectButton> ();
-				PlayerPrefs.SetInt ("Level" + button.levelText.text, button.unlocked);
+				PlayerPrefs.SetInt ("Level_" + button.levelText.text, button.unlocked);
 			}
 		//}
 	}

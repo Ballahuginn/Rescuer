@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class LevelLoader : MonoBehaviour {
@@ -10,6 +11,7 @@ public class LevelLoader : MonoBehaviour {
 
 	void Start () 
 	{
+		Scene scene = SceneManager.GetActiveScene ();
 		playerInZone = false;
 	}
 
@@ -32,6 +34,7 @@ public class LevelLoader : MonoBehaviour {
 		if (other.tag == "Player")
 		{
 			playerInZone = true;
+			PlayerPrefs.SetInt (SceneManager.GetActiveScene ().name + "_done", 1); 
 		}
 	}
 

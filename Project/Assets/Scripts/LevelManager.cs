@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class LevelManager : MonoBehaviour {
@@ -16,6 +17,7 @@ public class LevelManager : MonoBehaviour {
     {
         player = FindObjectOfType<PlayerController>();
 		healthManager = FindObjectOfType<HealthManager> ();
+		PlayerPrefs.SetString("LastActiveScene", SceneManager.GetActiveScene().name);
 		//targetCollider = player.transform.FindChild ("Target Collider").gameObject;
     }
 	

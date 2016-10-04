@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 //using UnityEngine.SceneManagement;
 
@@ -13,7 +14,13 @@ public class MainMenu : MonoBehaviour {
 		Application.LoadLevel (startLevel);
 		PlayerPrefs.SetInt (level0Tag, 1);
 		PlayerPrefs.SetInt ("PlayerLevelSelectPosition", 0);
+		PlayerPrefs.DeleteAll ();
 		//SceneManager.LoadScene (startLevel);
+	}
+
+	public void ContGame()
+	{
+		SceneManager.LoadScene (PlayerPrefs.GetString ("LastActiveScene"));
 	}
 
 	public void LevelSelect()

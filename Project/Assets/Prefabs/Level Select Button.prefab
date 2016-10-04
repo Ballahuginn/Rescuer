@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10980392, g: 0.10980392, b: 0.10980392, a: 1}
+  m_Color: {r: 0.21410032, g: 0.9705882, b: 0.9705882, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -486,9 +486,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelText: {fileID: 114000012876535486}
   unlocked: 0
-  Star1: {fileID: 0}
-  Star2: {fileID: 0}
-  Star3: {fileID: 0}
+  Star1: {fileID: 1000012014410396}
+  Star2: {fileID: 1000013518611400}
+  Star3: {fileID: 1000011248334028}
 --- !u!114 &114000014280046900
 MonoBehaviour:
   m_ObjectHideFlags: 1
