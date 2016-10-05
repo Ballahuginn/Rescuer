@@ -7,8 +7,9 @@ public class AnnotationMenu : MonoBehaviour {
 
 	public GameObject annotationMenuCanvas;
 	public GameObject annotationMenuCanvas2;
+    public GameObject annotation;
 
-	void Start () 
+    void Start () 
 	{
 		if (PlayerPrefs.GetInt("HaveNewGame") != 1)
 		{
@@ -46,6 +47,7 @@ public class AnnotationMenu : MonoBehaviour {
 	public void Resume ()
 	{
 		isPaused = false;
-	}
+        annotation.SetActive(false);
+    }
 }
 

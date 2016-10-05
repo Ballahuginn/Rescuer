@@ -9,7 +9,6 @@ public class PauseMenu : MonoBehaviour {
 	public bool paused;
 
 	public GameObject pauseMenuCanvas;
-	public GameObject annotation;
 
 	void Start()
 	{
@@ -23,7 +22,6 @@ public class PauseMenu : MonoBehaviour {
 	{
 		if (paused)
 		{
-			annotation.SetActive(false);
 			pauseMenuCanvas.SetActive (true);
 			//AnnotationMenu.isPaused = true;
 			Time.timeScale = 0;
