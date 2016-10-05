@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc4cef12ec8e4ef0a3181bfd6d547b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Level_Select
+  levelToLoad: Level_Select_New
   levelTag: level3lock
 --- !u!68 &135553281
 EdgeCollider2D:

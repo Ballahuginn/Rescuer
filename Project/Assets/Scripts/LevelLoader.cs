@@ -5,13 +5,14 @@ using System.Collections;
 public class LevelLoader : MonoBehaviour {
 
 	private bool playerInZone;
+	private string levelNumber;
 
 	public string levelToLoad;
 	public string levelTag;
 
 	void Start () 
 	{
-		Scene scene = SceneManager.GetActiveScene ();
+		//Scene scene = SceneManager.GetActiveScene ().name;
 		playerInZone = false;
 	}
 
@@ -31,10 +32,24 @@ public class LevelLoader : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
+		for (int i = 0; i < NewLevelSelectManager.numberOfLevels; i++)
+		{
+			levelNumber = "Level_" + i;
+			if(levelNumber.Equals(SceneManager.GetActiveScene().name))
+			{
+				PlayerPrefs.SetInt ("Level_" + (i + 1), 1);
+			}
+		}
+
 		if (other.tag == "Player")
 		{
 			playerInZone = true;
 			PlayerPrefs.SetInt (SceneManager.GetActiveScene ().name + "_done", 1); 
+		}
+
+		if (PlayerPrefs.GetInt("WithTarget") == 1)
+		{
+			PlayerPrefs.SetInt (SceneManager.GetActiveScene ().name + "_target", 1);
 		}
 	}
 

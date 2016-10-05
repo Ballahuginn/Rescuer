@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
 		onGroundCollider.SetActive (false);
 		withHumanCollider.SetActive (false);
 		targetCollider.SetActive (false);
+		PlayerPrefs.SetInt ("WithTarget", 0);
 		SpriteSet ("withTheHuman", false);
 		SpriteSet ("onTheGround", false);
 		SpriteSet ("targetIsDead", false);
@@ -68,6 +69,7 @@ public class PlayerController : MonoBehaviour
 			onGroundCollider.SetActive (true);
 			withHumanCollider.SetActive (false);
 			targetCollider.SetActive (false);
+			PlayerPrefs.SetInt ("WithTarget", 0);
 
 			if (Input.GetKey ("up") && CheckForTrigger.wasTriggered)
 			{
@@ -78,6 +80,7 @@ public class PlayerController : MonoBehaviour
 				onGroundCollider.SetActive (false);
 				withHumanCollider.SetActive (true);
 				targetCollider.SetActive (true);
+				PlayerPrefs.SetInt ("WithTarget", 1);
 
 			}
 		}  
@@ -85,11 +88,21 @@ public class PlayerController : MonoBehaviour
 		{
 			SpriteSet ("onTheGround", false);
 			if (KillPlayer.deadTarget == false && wasGrounded == false)
+			{
 				targetCollider.SetActive (false);
+				PlayerPrefs.SetInt ("WithTarget", 0);
+			}
 			else if (KillPlayer.deadTarget == true && wasGrounded == true)
+			{
 				targetCollider.SetActive (false);
+				PlayerPrefs.SetInt ("WithTarget", 0);
+			}
 			else
+			{
 				targetCollider.SetActive (true);
+				PlayerPrefs.SetInt ("WithTarget", 1);
+			}
+			
 		}
 
 		if (wasGrounded)

@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9425624f638aa4b4c9ec07462e2745f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSelect: Level_Select
+  levelSelect: Level_Select_New
   mainMenu: Main Menu
   isPaused: 0
   pauseMenuCanvas: {fileID: 1000010734783970}

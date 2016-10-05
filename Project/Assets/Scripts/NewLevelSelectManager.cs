@@ -10,6 +10,8 @@ public class NewLevelSelectManager : MonoBehaviour {
 	public Transform spacer;
 	public List<Level> levelList;
 
+	public static int numberOfLevels;
+
 	[System.Serializable]
 	public class Level
 	{
@@ -22,6 +24,7 @@ public class NewLevelSelectManager : MonoBehaviour {
 
 	void Start () 
 	{
+		numberOfLevels = 0;
 		FillList ();
 	}
 
@@ -49,8 +52,13 @@ public class NewLevelSelectManager : MonoBehaviour {
 			{
 				button.Star1.SetActive (true);
 			}
+			if (PlayerPrefs.GetInt("Level_" + button.levelText.text + "_target") == 1)
+			{
+				button.Star2.SetActive (true);
+			}
 
 			newButton.transform.SetParent (spacer);
+			numberOfLevels = numberOfLevels + 1;
 		}
 		SaveAll ();
 	}

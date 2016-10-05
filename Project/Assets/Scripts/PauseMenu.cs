@@ -6,32 +6,46 @@ public class PauseMenu : MonoBehaviour {
 	public string levelSelect;
 	public string mainMenu;
 
-	public bool isPaused;
+	public bool paused;
 
 	public GameObject pauseMenuCanvas;
+	public GameObject annotation;
+
+	void Start()
+	{
+		//annotationMenu = FindObjectOfType<AnnotationMenu> ();
+		//annotationMenu.enabled (false);
+		paused = false;
+		//AnnotationMenu.isPaused = false;
+	}
 
 	void Update () 
 	{
-		if (isPaused)
+		if (paused)
 		{
+			annotation.SetActive(false);
 			pauseMenuCanvas.SetActive (true);
-			Time.timeScale = 0f;
+			//AnnotationMenu.isPaused = true;
+			Time.timeScale = 0;
 		}
-		else
+		//else if (AnnotationMenu.isPaused && )
+		else if (!paused)
 		{
 			pauseMenuCanvas.SetActive (false);
-			Time.timeScale = 1f;
+			Time.timeScale = 1;
 		}
 
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			isPaused = !isPaused;
+			//AnnotationMenu.isPaused = !AnnotationMenu.isPaused;
+			paused = !paused;
 		}
 	}
 
 	public void Resume ()
 	{
-		isPaused = false;
+		paused = false;
+		//AnnotationMenu.isPaused = false;
 	}
 
 	public void LevelSelect()
