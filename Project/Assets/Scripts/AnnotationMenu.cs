@@ -15,7 +15,7 @@ public class AnnotationMenu : MonoBehaviour {
 		{
 			isPaused = true;
 			annotationMenuCanvas.SetActive (true);
-			PlayerPrefs.SetInt ("HaveNewGame", 1);
+			
 		}
 		else
 		{
@@ -48,6 +48,7 @@ public class AnnotationMenu : MonoBehaviour {
 	{
 		isPaused = false;
         annotation.SetActive(false);
+        PlayerPrefs.SetInt("HaveNewGame", 1);
     }
 }
 

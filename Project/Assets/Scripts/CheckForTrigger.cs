@@ -5,13 +5,13 @@ public class CheckForTrigger : MonoBehaviour {
 
     public static bool wasTriggered;
 
-	private AudioSource audio;
+	private AudioSource audioS;
 
 	private float delay;
 
 	void Start()
 	{
-		audio = GetComponent<AudioSource> ();
+		audioS = GetComponent<AudioSource> ();
 		delay = 0.2f;
 	}
 
@@ -19,7 +19,7 @@ public class CheckForTrigger : MonoBehaviour {
     {
 		if (other.tag == "Player")
             wasTriggered = true;
-		audio.PlayDelayed (delay);
+		audioS.PlayDelayed (delay);
     }
 
     void OnTriggerStay2D (Collider2D other)

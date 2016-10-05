@@ -11,7 +11,7 @@ public class HurtPlayerOnContact : MonoBehaviour {
 
 	void Start () 
 	{
-		player = FindObjectOfType<PlayerController>();
+		//player = FindObjectOfType<PlayerController>();
 	}
 
 	void Update () 

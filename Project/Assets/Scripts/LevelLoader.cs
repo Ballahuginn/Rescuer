@@ -12,7 +12,6 @@ public class LevelLoader : MonoBehaviour {
 
 	void Start () 
 	{
-		//Scene scene = SceneManager.GetActiveScene ().name;
 		playerInZone = false;
 	}
 
@@ -27,7 +26,7 @@ public class LevelLoader : MonoBehaviour {
 	public void LoadLevel()
 	{
 		PlayerPrefs.SetInt (levelTag, 1);
-		Application.LoadLevel (levelToLoad);
+        SceneManager.LoadScene(levelToLoad);
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -51,6 +50,11 @@ public class LevelLoader : MonoBehaviour {
 		{
 			PlayerPrefs.SetInt (SceneManager.GetActiveScene ().name + "_target", 1);
 		}
+
+        if (HealthManager.playerHealth == 3)
+        {
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_fullhealth", 1);
+        }
 	}
 
 	void OnTriggerExit2D(Collider2D other)

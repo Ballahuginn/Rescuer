@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class WarningMenu : MonoBehaviour {
@@ -18,7 +19,8 @@ public class WarningMenu : MonoBehaviour {
 	public void YesNewGame()
 	{
 		PlayerPrefs.DeleteAll ();
-		Application.LoadLevel (startLevel);
+		//Application.LoadLevel (startLevel);
+        SceneManager.LoadScene(startLevel);
 	}
 
 	public void NoGoBack()

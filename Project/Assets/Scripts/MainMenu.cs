@@ -2,13 +2,11 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
-//using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
 	public string startLevel;
 	public string levelSelect;
-	public string level0Tag;
 
 	public GameObject warningCanvas;
 	public GameObject mainMenu;
@@ -16,7 +14,6 @@ public class MainMenu : MonoBehaviour {
 
 	void Start()
 	{
-		//Button contButton = mainMenu.GetComponentInChildren<Button> ();
 		if (PlayerPrefs.GetInt("HaveNewGame") == 1)
 		{
 			contButton.interactable = true;
@@ -34,19 +31,15 @@ public class MainMenu : MonoBehaviour {
 
 	public void NewGame()
 	{
-		PlayerPrefs.SetInt (level0Tag, 1);
-		PlayerPrefs.SetInt ("PlayerLevelSelectPosition", 0);
 		if (PlayerPrefs.GetInt("HaveNewGame") != 1)
 		{
 			warningCanvas.SetActive(false);
-			Application.LoadLevel (startLevel);
+            SceneManager.LoadScene(startLevel);
 		}
 		else
 		{
 			warningCanvas.SetActive(true);
 		}
-		//PlayerPrefs.DeleteAll ();
-		//SceneManager.LoadScene (startLevel);
 	}
 
 	public void ContGame()
@@ -56,17 +49,12 @@ public class MainMenu : MonoBehaviour {
 
 	public void LevelSelect()
 	{
-		Application.LoadLevel (levelSelect);
-		PlayerPrefs.SetInt (level0Tag, 1);
-
-		if (!PlayerPrefs.HasKey("PlayerLevelSelectPosition"))
-		{
-			PlayerPrefs.SetInt ("PlayerLevelSelectPosition", 0);
-		}
+        SceneManager.LoadScene(levelSelect);
 	}
 
 	public void QuitGame()
 	{
 		Application.Quit ();
+        //PlayerPrefs.DeleteAll();
 	}
 }

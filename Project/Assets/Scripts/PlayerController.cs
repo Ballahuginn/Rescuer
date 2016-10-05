@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 	public bool soundWasPlayed;
 
 	public static Animator playerAnimation;
-	private AudioSource audio;
+	private AudioSource audioS;
 	private GameObject ropeCollider;
 	private GameObject onGroundCollider;
 	private GameObject withHumanCollider;
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerAnimation = GetComponent<Animator>();
-		audio = GetComponent<AudioSource> ();
+		audioS = GetComponent<AudioSource> ();
 		ropeCollider = transform.FindChild ("Rope Collider").gameObject;
 		onGroundCollider = transform.FindChild ("OnGround Collider").gameObject;
 		withHumanCollider = transform.FindChild ("WithHuman Collider").gameObject;
@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
 		if (spaceWasPressed && !soundWasPlayed) 
 		{
-			audio.Play ();
+			audioS.Play ();
 			soundWasPlayed = true;
 		}
 			

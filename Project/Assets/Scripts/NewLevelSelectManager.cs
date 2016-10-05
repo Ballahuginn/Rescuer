@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.EventSystems;
 
 public class NewLevelSelectManager : MonoBehaviour {
 
@@ -18,8 +19,6 @@ public class NewLevelSelectManager : MonoBehaviour {
 		public string levelText;
 		public int unLocked;
 		public bool isInteractable;
-
-		//public Button.ButtonClickedEvent onClickEvet;
 	}
 
 	void Start () 
@@ -56,6 +55,10 @@ public class NewLevelSelectManager : MonoBehaviour {
 			{
 				button.Star2.SetActive (true);
 			}
+            if (PlayerPrefs.GetInt("Level_" + button.levelText.text + "_fullhealth") == 1)
+            {
+                button.Star3.SetActive (true);
+            }
 
 			newButton.transform.SetParent (spacer);
 			numberOfLevels = numberOfLevels + 1;
@@ -65,23 +68,17 @@ public class NewLevelSelectManager : MonoBehaviour {
 
 	void SaveAll()
 	{
-//		if (PlayerPrefs.HasKey ("Level1")) {
-//			return;
-//		} 
-//		else 
-//		{
-			GameObject[] allButtons = GameObject.FindGameObjectsWithTag ("LevelButton");
-			foreach (GameObject buttons in allButtons) 
-			{
-				LevelSelectButton button = buttons.GetComponent<LevelSelectButton> ();
-				PlayerPrefs.SetInt ("Level_" + button.levelText.text, button.unlocked);
-			}
-		//}
+		GameObject[] allButtons = GameObject.FindGameObjectsWithTag ("LevelButton");
+		foreach (GameObject buttons in allButtons) 
+		{
+			LevelSelectButton button = buttons.GetComponent<LevelSelectButton> ();
+			PlayerPrefs.SetInt ("Level_" + button.levelText.text, button.unlocked);
+		}
 	}
 
 	void LoadLevels(string value)
 	{
-		Application.LoadLevel (value);
+        SceneManager.LoadScene(value);
 	}
 
 	void DeleteAll()
