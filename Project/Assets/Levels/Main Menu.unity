@@ -133,7 +133,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLevel: Level_0
   levelSelect: Level_Select_New
-  level0Tag: level0tag
   warningCanvas: {fileID: 1177211096}
   mainMenu: {fileID: 1972585969}
   contButton: {fileID: 1694511912}

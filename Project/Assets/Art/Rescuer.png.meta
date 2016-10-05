@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e2b9f00474ee17a49bcc91a10d9e201b
-timeCreated: 1475442589
+timeCreated: 1475697986
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -18,6 +18,10 @@ TextureImporter:
     21300022: Level_Select_1
     21300024: Level_Select_2
     21300026: LeveL_Select_Lock
+    21300028: Rescuer_1
+    21300030: New_Target
+    21300032: Rescuer_with_Target
+    21300034: Rescuer_with_Blood
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -243,6 +247,58 @@ TextureImporter:
         y: 98
         width: 28
         height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rescuer_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 8
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: New_Target
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 41
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rescuer_with_Target
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 39
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Rescuer_with_Blood
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 8
+        width: 10
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

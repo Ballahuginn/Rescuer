@@ -24,32 +24,22 @@ public class PlayerController : MonoBehaviour
 
 	public static Animator playerAnimation;
 	private AudioSource audioS;
-	private GameObject ropeCollider;
-	private GameObject onGroundCollider;
-	private GameObject withHumanCollider;
 	private GameObject targetCollider;
 
     private float verticalSpeed;
-	private bool spaceWasPressed;
+	private bool upWasPressed;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerAnimation = GetComponent<Animator>();
 		audioS = GetComponent<AudioSource> ();
-		ropeCollider = transform.FindChild ("Rope Collider").gameObject;
-		onGroundCollider = transform.FindChild ("OnGround Collider").gameObject;
-		withHumanCollider = transform.FindChild ("WithHuman Collider").gameObject;
 		targetCollider = transform.FindChild ("Target Collider").gameObject;
 		soundWasPlayed = false;
 		wasGrounded = false;
-		ropeCollider.SetActive (true);
-		onGroundCollider.SetActive (false);
-		withHumanCollider.SetActive (false);
 		targetCollider.SetActive (false);
 		PlayerPrefs.SetInt ("WithTarget", 0);
 		SpriteSet ("withTheHuman", false);
-		SpriteSet ("onTheGround", false);
 		SpriteSet ("targetIsDead", false);
 
     }
@@ -64,21 +54,14 @@ public class PlayerController : MonoBehaviour
 		if (grounded)
 		{
 			wasGrounded = true;
-			SpriteSet ("onTheGround", true);
-			ropeCollider.SetActive (false);
-			onGroundCollider.SetActive (true);
-			withHumanCollider.SetActive (false);
 			targetCollider.SetActive (false);
 			PlayerPrefs.SetInt ("WithTarget", 0);
 
 			if (Input.GetKey ("up") && CheckForTrigger.wasTriggered)
 			{
 				
-				spaceWasPressed = true;
-				SpriteSet ("withTheHuman", true);
-				ropeCollider.SetActive (false);
-				onGroundCollider.SetActive (false);
-				withHumanCollider.SetActive (true);
+				upWasPressed = true;
+                SpriteSet("withTheHuman", true);
 				targetCollider.SetActive (true);
 				PlayerPrefs.SetInt ("WithTarget", 1);
 
@@ -86,7 +69,6 @@ public class PlayerController : MonoBehaviour
 		}  
 		else
 		{
-			SpriteSet ("onTheGround", false);
 			if (KillPlayer.deadTarget == false && wasGrounded == false)
 			{
 				targetCollider.SetActive (false);
@@ -108,7 +90,7 @@ public class PlayerController : MonoBehaviour
 		if (wasGrounded)
 		{
 			goUpText.enabled = true;
-			if (spaceWasPressed)
+			if (upWasPressed)
 			{
 				goUpText.enabled = false;
 				if (Input.GetKey ("up") && KillPlayer.deadTarget == false)
@@ -130,7 +112,7 @@ public class PlayerController : MonoBehaviour
 			Moving();
 		}
 
-		if (spaceWasPressed && !soundWasPlayed) 
+		if (upWasPressed && !soundWasPlayed) 
 		{
 			audioS.Play ();
 			soundWasPlayed = true;
@@ -148,9 +130,9 @@ public class PlayerController : MonoBehaviour
 		}
 
 		if (rb.velocity.x > 0)
-			transform.localScale = new Vector3(1f, 1f, 1f);
+			transform.localScale = new Vector3(-1.5f, 1.5f, 1f);
 		else if (rb.velocity.x < 0)
-			transform.localScale = new Vector3(-1f, 1f, -1f);
+			transform.localScale = new Vector3(1.5f, 1.5f, 1f);
 	}
 
 	void Moving ()
