@@ -500,8 +500,8 @@ MonoBehaviour:
   spacer: {fileID: 607387633}
   levelList:
   - levelText: 0
-    unLocked: 1
-    isInteractable: 1
+    unLocked: 0
+    isInteractable: 0
   - levelText: 1
     unLocked: 0
     isInteractable: 0

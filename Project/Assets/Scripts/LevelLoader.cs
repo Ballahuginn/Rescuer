@@ -8,11 +8,12 @@ public class LevelLoader : MonoBehaviour {
 	private string levelNumber;
 
 	public string levelToLoad;
-	public string levelTag;
+	//public string levelTag;
 
 	void Start () 
 	{
 		playerInZone = false;
+		PlayerPrefs.SetInt ("Level_0", 1);
 	}
 
 	void Update () 
@@ -25,7 +26,7 @@ public class LevelLoader : MonoBehaviour {
 
 	public void LoadLevel()
 	{
-		PlayerPrefs.SetInt (levelTag, 1);
+		//PlayerPrefs.SetInt (levelTag, 1);
         SceneManager.LoadScene(levelToLoad);
 	}
 
@@ -36,7 +37,8 @@ public class LevelLoader : MonoBehaviour {
 			levelNumber = "Level_" + i;
 			if(levelNumber.Equals(SceneManager.GetActiveScene().name))
 			{
-				PlayerPrefs.SetInt ("Level_" + (i + 1), 1);
+				int j = i + 1;
+				PlayerPrefs.SetInt ("Level_" + j, 1);
 			}
 		}
 
