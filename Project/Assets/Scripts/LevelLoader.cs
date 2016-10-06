@@ -1,69 +1,96 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class LevelLoader : MonoBehaviour {
 
-	private bool playerInZone;
 	private string levelNumber;
+    private string[] levelName;
+    private int levelNumberForText;
+    //private int j;
 
-	public string levelToLoad;
-	//public string levelTag;
+    public string mainMenu;
+    public string levelToLoad;
+
+    public GameObject levelComplete;
+    public GameObject star1;
+    public GameObject star2;
+    public GameObject star3;
+    public Text levelNameText;
 
 	void Start () 
 	{
-		playerInZone = false;
 		PlayerPrefs.SetInt ("Level_0", 1);
-	}
-
-	void Update () 
-	{
-		if (playerInZone)
-		{
-			LoadLevel ();
-		}
-	}
-
-	public void LoadLevel()
-	{
-		//PlayerPrefs.SetInt (levelTag, 1);
-        SceneManager.LoadScene(levelToLoad);
+        levelName = SceneManager.GetActiveScene().name.Split('_');
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
+        /*
 		for (int i = 0; i < NewLevelSelectManager.numberOfLevels; i++)
 		{
 			levelNumber = "Level_" + i;
 			if(levelNumber.Equals(SceneManager.GetActiveScene().name))
 			{
-				int j = i + 1;
-				PlayerPrefs.SetInt ("Level_" + j, 1);
+                levelNumberForText = i;
+                int j = i + 1;
+                PlayerPrefs.SetInt ("Level_" + j, 1);
 			}
 		}
+        */
+        levelNumberForText = Convert.ToInt32(levelName[1]);
+        levelNumberForText = levelNumberForText + 1;
+        PlayerPrefs.SetInt("Level_" + levelNumberForText, 1);
 
-		if (other.tag == "Player")
+        levelComplete.SetActive(true);
+        levelNameText.text = "You have completed Level " + levelName[1] + "!";
+        //Time.timeScale = 0;
+
+        if (other.tag == "Rope")
 		{
-			playerInZone = true;
-			PlayerPrefs.SetInt (SceneManager.GetActiveScene ().name + "_done", 1); 
+			PlayerPrefs.SetInt (SceneManager.GetActiveScene ().name + "_done", 1);
+            star1.SetActive(true);
 		}
 
-		if (PlayerPrefs.GetInt("WithTarget") == 1)
+		if (other.tag == "Target")
 		{
 			PlayerPrefs.SetInt (SceneManager.GetActiveScene ().name + "_target", 1);
+            star2.SetActive(true);
 		}
 
         if (HealthManager.playerHealth == 3)
         {
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_fullhealth", 1);
+            star3.SetActive(true);
         }
 	}
 
-	void OnTriggerExit2D(Collider2D other)
-	{
-		if (other.tag == "Player")
-		{
-			playerInZone = false;
-		}
-	}
+    public void NextLevel()
+    {
+        TurnOffWinCanvas();
+        SceneManager.LoadScene(levelToLoad);
+    }
+
+    public void MainMenu()
+    {
+        TurnOffWinCanvas();
+        SceneManager.LoadScene(mainMenu);
+    }
+
+    public void LevelRestart()
+    {
+        TurnOffWinCanvas();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void TurnOffWinCanvas ()
+    {
+        levelComplete.SetActive(false);
+        star1.SetActive(false);
+        star2.SetActive(false);
+        star3.SetActive(false);
+        //Time.timeScale = 1;
+    }
 }

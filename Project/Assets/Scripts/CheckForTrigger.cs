@@ -12,14 +12,15 @@ public class CheckForTrigger : MonoBehaviour {
 	void Start()
 	{
 		audioS = GetComponent<AudioSource> ();
-		delay = 0.2f;
 	}
 
     void OnTriggerEnter2D (Collider2D other)
     {
-		if (other.tag == "Player")
+        if (other.name == "Player")
+        {
             wasTriggered = true;
-		audioS.PlayDelayed (delay);
+            audioS.Play();
+        }
     }
 
     void OnTriggerStay2D (Collider2D other)

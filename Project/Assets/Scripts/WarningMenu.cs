@@ -19,7 +19,6 @@ public class WarningMenu : MonoBehaviour {
 	public void YesNewGame()
 	{
 		PlayerPrefs.DeleteAll ();
-		//Application.LoadLevel (startLevel);
         SceneManager.LoadScene(startLevel);
 	}
 

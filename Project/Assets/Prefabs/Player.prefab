@@ -27,6 +27,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1000012758827956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000011274387370}
+  - 61: {fileID: 61000011464449324}
+  m_Layer: 12
+  m_Name: Rope Collider
+  m_TagString: Rope
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000013879887916
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,10 +90,24 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 4000012322503104}
   - {fileID: 4000012506004040}
+  - {fileID: 4000011274387370}
+  - {fileID: 4000012322503104}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &4000011274387370
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012758827956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000010150058892}
+  m_RootOrder: 1
 --- !u!4 &4000012322503104
 Transform:
   m_ObjectHideFlags: 1
@@ -90,7 +120,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000010150058892}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!4 &4000012506004040
 Transform:
   m_ObjectHideFlags: 1
@@ -103,7 +133,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000010150058892}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!50 &50000012314405458
 Rigidbody2D:
   serializedVersion: 2
@@ -195,6 +225,20 @@ PolygonCollider2D:
       - {x: 0.12503442, y: -0.03206889}
       - {x: 0.12473206, y: 0.15728855}
       - {x: 0.093669854, y: 0.15599856}
+--- !u!61 &61000011464449324
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012758827956}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.14058284, y: 0.2657013}
+  serializedVersion: 2
+  m_Size: {x: 0.030922255, y: 0.0934973}
 --- !u!82 &82000010332178620
 AudioSource:
   m_ObjectHideFlags: 1

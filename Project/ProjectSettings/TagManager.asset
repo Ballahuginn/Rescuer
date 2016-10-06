@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Spike
   - LevelButton
+  - Rope
   layers:
   - Default
   - TransparentFX
