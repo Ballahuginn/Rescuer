@@ -7,6 +7,7 @@ public class HurtPlayerOnContact : MonoBehaviour {
 
 	public GameObject hurtParticle;
 
+
 	private PlayerController player;
 
 	void Start () 
@@ -16,22 +17,21 @@ public class HurtPlayerOnContact : MonoBehaviour {
 
 	void Update () 
 	{
-	
+		
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.name == "Player") //|| other.tag == "Target")
+		if (other.gameObject.CompareTag("Player"))
 		{
 			HealthManager.HurtPlayer (damageToGive);
 
-			var player = other.GetComponent<PlayerController> (); 
+			var player = other.gameObject.GetComponent<PlayerController> (); 
 			player.knockbackCount = player.knockbakLenght; 
 
-			//if (other.transform.position.x < transform.position.x)
-			if (Input.GetKey("right"))
+			if (other.gameObject.transform.position.x > transform.position.x)
 				player.knockFromRight = true;
-			else if (Input.GetKey("left"))
+			else if (other.gameObject.transform.position.x < transform.position.x)
 				player.knockFromRight = false;
 
 			Instantiate (hurtParticle, player.transform.position, player.transform.rotation);

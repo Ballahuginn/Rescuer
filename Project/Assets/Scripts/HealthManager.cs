@@ -37,7 +37,7 @@ public class HealthManager : MonoBehaviour {
 
 	public static void HurtPlayer(int damageToGive)
 	{
-		playerHealth -= damageToGive;	
+		playerHealth -= damageToGive;
 	}
 
 	public static void HurtPlayerWithEnemy(int enemyDamageToGive)

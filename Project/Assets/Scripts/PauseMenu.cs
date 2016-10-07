@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour {
 	public string levelSelect;
 	public string mainMenu;
 
-	public bool paused;
+	public static bool paused;
 
 	public GameObject pauseMenuCanvas;
 

@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
 		else
 		{
 			if (knockFromRight)
-				rb.velocity = new Vector2 (-knockback, rb.velocity.y);
+				rb.velocity = new Vector2 (-rb.velocity.x, rb.velocity.y);
 			else
 				rb.velocity = new Vector2 (knockback, rb.velocity.y);
 			knockbackCount -= Time.deltaTime;

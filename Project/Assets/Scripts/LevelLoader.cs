@@ -9,7 +9,7 @@ public class LevelLoader : MonoBehaviour {
 	private string levelNumber;
     private string[] levelName;
     private int levelNumberForText;
-    //private int j;
+	private bool canvasIsOn;
 
     public string mainMenu;
     public string levelToLoad;
@@ -24,29 +24,22 @@ public class LevelLoader : MonoBehaviour {
 	{
 		PlayerPrefs.SetInt ("Level_0", 1);
         levelName = SceneManager.GetActiveScene().name.Split('_');
+		canvasIsOn = true;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-        /*
-		for (int i = 0; i < NewLevelSelectManager.numberOfLevels; i++)
-		{
-			levelNumber = "Level_" + i;
-			if(levelNumber.Equals(SceneManager.GetActiveScene().name))
-			{
-                levelNumberForText = i;
-                int j = i + 1;
-                PlayerPrefs.SetInt ("Level_" + j, 1);
-			}
-		}
-        */
         levelNumberForText = Convert.ToInt32(levelName[1]);
         levelNumberForText = levelNumberForText + 1;
         PlayerPrefs.SetInt("Level_" + levelNumberForText, 1);
 
         levelComplete.SetActive(true);
         levelNameText.text = "You have completed Level " + levelName[1] + "!";
-        //Time.timeScale = 0;
+
+		if (/*AnnotationMenu.isPaused == false && PauseMenu.paused == false && */canvasIsOn)
+			Time.timeScale = 0;
+		else if (/*AnnotationMenu.isPaused == false && PauseMenu.paused == false && */!canvasIsOn)
+			Time.timeScale = 1;
 
         if (other.tag == "Rope")
 		{
@@ -91,6 +84,6 @@ public class LevelLoader : MonoBehaviour {
         star1.SetActive(false);
         star2.SetActive(false);
         star3.SetActive(false);
-        //Time.timeScale = 1;
+		canvasIsOn = false;
     }
 }
