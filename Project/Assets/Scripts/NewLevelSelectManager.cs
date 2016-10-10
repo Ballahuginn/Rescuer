@@ -81,6 +81,11 @@ public class NewLevelSelectManager : MonoBehaviour {
         SceneManager.LoadScene(value);
 	}
 
+	public void MainMenu ()
+	{
+		SceneManager.LoadScene ("Main Menu");
+	}
+
 	void DeleteAll()
 	{
 		PlayerPrefs.DeleteAll (); 

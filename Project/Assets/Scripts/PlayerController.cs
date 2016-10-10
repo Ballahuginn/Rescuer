@@ -129,10 +129,7 @@ public class PlayerController : MonoBehaviour
 			knockbackCount -= Time.deltaTime;
 		}
 
-		if (rb.velocity.x > 0)
-			transform.localScale = new Vector3(-1.5f, 1.5f, 1f);
-		else if (rb.velocity.x < 0)
-			transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+
 	}
 
 	void Moving ()
@@ -145,8 +142,14 @@ public class PlayerController : MonoBehaviour
 		{
 			moveHorizontal = Input.GetAxis ("Horizontal");
 		}
+
 		Vector2 movement = new Vector2 (moveHorizontal, -moveVertical);
 		rb.velocity = movement * generalSpeed;
+
+		if (rb.velocity.x > 0)
+			transform.localScale = new Vector3(-1.5f, 1.5f, 1f);
+		else if (rb.velocity.x < 0)
+			transform.localScale = new Vector3(1.5f, 1.5f, 1f);
 	}
 
 	public static void SpriteSet (string spriteToSet, bool spriteState)
